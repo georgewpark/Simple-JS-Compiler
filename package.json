@@ -1,0 +1,31 @@
+{
+    "name": "simple-js-compiler",
+    "version": "1.0.0",
+    "description": "a simple JavaScript compiler using npm scripts",
+    "scripts": {
+        "start": "npm run watch-js",
+        "watch-js": "nodemon --watch src/js -x \"npm run compile-js\"",
+        "compile-js": "babel src/js/main.js -o dist/js/main.js --presets=@babel/preset-env && npm run uglify-js",
+        "uglify-js": "uglifyjs dist/js/main.js -m toplevel --mangle-props -c -o dist/js/main.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/georgewpark/Simple-JS-Compiler.git"
+    },
+    "author": "George Park",
+    "license": "MIT",
+    "keywords": [
+        "javascript",
+        "compiler",
+        "babel",
+        "minification"
+    ],
+    "devDependencies": {
+        "@babel/cli": "^7.2.3",
+        "@babel/core": "^7.2.2",
+        "@babel/preset-env": "^7.3.1",
+        "nodemon": "^1.18.10",
+        "uglify-js": "^3.4.9"
+    },
+    "homepage": "https://github.com/georgewpark/Simple-JS-Compiler"
+}
